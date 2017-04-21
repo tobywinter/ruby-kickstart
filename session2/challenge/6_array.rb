@@ -14,3 +14,12 @@
 # prime_chars? ['ab', 'cd']       # => false
 # prime_chars? ['a', 'bcd']       # => false
 # prime_chars? ['a', 'b', 'cd']   # => false
+
+
+def prime_chars?(string_array)
+	n = string_array.join("").length
+	require 'prime'
+	Prime.prime?(n)
+end
+
+p prime_chars? ['abc', 'lsd'] 
