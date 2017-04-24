@@ -8,3 +8,20 @@
 # staircase 4  # => {1 => [], 3 => [2]}
 # staircase 5  # => {1 => [], 3 => [2], 5 =>[2, 4]}
 
+def staircase (key)
+	to_return = Hash.new
+	1.upto key do |size|
+		next if size.even?
+		all = Array.new(size) { |size| size + 1 }
+		evens = all.select { |n| n.even? }
+		to_return[size] = evens
+	end
+	to_return
+end
+
+
+p staircase 1  # => {1 => []}
+p staircase 2  # => {1 => []}
+p staircase 3  # => {1 => [], 3 => [2]}
+p staircase 4  # => {1 => [], 3 => [2]}
+p staircase 5  # => {1 => [], 3 => [2], 5 =>[2, 4]}
