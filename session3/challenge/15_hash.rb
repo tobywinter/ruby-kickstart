@@ -38,3 +38,29 @@
 # middle head                        # => 3
 # head = {:data => 6, :next => head}
 # middle head                        # => 3
+
+def list_size(list)
+	return 0 unless list
+	1 + list_size(list[:next])
+end
+
+
+def middle(list, halfway = list_size(list) / 2)
+	return list[:data] if halfway == 0 
+	middle list[:next], (halfway -1)
+end
+
+head = {:data => 1, :next => nil}
+ head = {:data => 2, :next => head}
+ head                                # => {:data=>2, :next=>{:data=>1, :next=>nil}}
+ head = {:data => 3, :next => head}
+ head                                # => {:data=>3, :next=>{:data=>2, :next=>{:data=>1, :next=>nil}}}
+
+
+
+p middle(head)
+
+
+
+
+
