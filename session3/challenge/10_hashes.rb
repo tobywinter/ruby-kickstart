@@ -46,9 +46,6 @@ def pathify(paths = Hash.new)
 	to_return
 end
 
-p pathify 'usr' => {'bin' => ['ruby'] } 				 # => ['/usr/bin/ruby']
-
-
 
 
 
