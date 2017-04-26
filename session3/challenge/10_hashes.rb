@@ -28,6 +28,27 @@
 #
 # create it from scratch :)
 
+# recursive requires a base step and a recursive loop with a break condition.
 
-def pathify
+
+def pathify(paths = Hash.new)
+
+	return paths.map { |path| "/" + path  } if paths.is_a? Array
+
+	to_return = []
+	paths.each do |parent_path, child_directories|
+		parent_path = "/" + parent_path
+		child_paths = pathify child_directories
+		child_paths.each do |child_paths|
+			to_return << (parent_path + child_paths)
+		end
+	end
+	to_return
 end
+
+p pathify 'usr' => {'bin' => ['ruby'] } 				 # => ['/usr/bin/ruby']
+
+
+
+
+
